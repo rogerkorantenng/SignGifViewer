@@ -3,10 +3,13 @@ phases:
   install:
     runtime-versions:
       python: 3.11
+  pre_build:
+    commands:
+      - cd backend
   build:
     commands:
-      - pip install -r requirements.txt
+      - cd backend && pip install -r requirements.txt
 artifacts:
   files:
     - '**/*'
-  base-directory: .
+  base-directory: backend
