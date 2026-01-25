@@ -85,7 +85,7 @@ export function VideoCapture() {
     let interval: NodeJS.Timeout;
 
     if (isStreaming) {
-      interval = setInterval(captureFrame, 1000);
+      interval = setInterval(captureFrame, 5000); // Capture every 5 seconds
     }
 
     return () => {
