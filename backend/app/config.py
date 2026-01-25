@@ -7,7 +7,11 @@ class Settings(BaseSettings):
     gemini_api_key: str = ""
 
     # CORS
-    cors_origins: list[str] = ["http://localhost:3000"]
+    cors_origins: list[str] = [
+        "http://localhost:3000",
+        "https://db5ht1h3t7t67.cloudfront.net",
+        "http://signbridge-frontend-env.eba-zmusnsbs.us-east-1.elasticbeanstalk.com",
+    ]
 
     # App Settings
     debug: bool = True
