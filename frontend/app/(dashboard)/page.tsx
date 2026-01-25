@@ -84,7 +84,7 @@ export default function DashboardHome() {
     <div className="min-h-screen">
       <DashboardHeader />
 
-      <div className="p-6">
+      <div className="p-4 sm:p-6">
         {/* Stats Grid */}
         <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((stat) => (

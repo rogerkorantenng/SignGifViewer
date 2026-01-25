@@ -31,7 +31,7 @@ export default function TranslatePage() {
     <div className="min-h-screen">
       <DashboardHeader title="Translate" />
 
-      <div className="p-6">
+      <div className="p-4 sm:p-6">
         {/* Mode Toggle */}
         <ModeToggle />
 

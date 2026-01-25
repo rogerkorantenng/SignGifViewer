@@ -23,21 +23,21 @@ export function ModeToggle() {
   ];
 
   return (
-    <div className="mb-8 flex justify-center">
-      <div className="inline-flex rounded-xl border bg-muted/50 p-1">
+    <div className="mb-6 flex justify-center sm:mb-8">
+      <div className="inline-flex w-full max-w-md rounded-xl border bg-muted/50 p-1 sm:w-auto">
         {modes.map((m) => (
           <button
             key={m.value}
             onClick={() => setMode(m.value)}
             className={cn(
-              'flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-medium transition-all',
+              'flex flex-1 items-center justify-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium transition-all sm:flex-none sm:px-6 sm:py-3',
               mode === m.value
                 ? 'bg-background text-foreground shadow-sm'
                 : 'text-muted-foreground hover:text-foreground'
             )}
           >
             {m.icon}
-            <span>{m.label}</span>
+            <span className="hidden sm:inline">{m.label}</span>
           </button>
         ))}
       </div>

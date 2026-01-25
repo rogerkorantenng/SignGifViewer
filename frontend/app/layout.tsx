@@ -6,13 +6,13 @@ import { Providers } from './providers';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'SignBridge - Real-time Sign Language Translator',
+  title: 'SignVu - Real-time Sign Language Translator',
   description:
     'Break communication barriers with AI-powered sign language translation. Powered by Gemini 3.',
   keywords: ['sign language', 'translator', 'accessibility', 'AI', 'Gemini 3'],
-  authors: [{ name: 'SignBridge Team' }],
+  authors: [{ name: 'SignVu Team' }],
   openGraph: {
-    title: 'SignBridge - Real-time Sign Language Translator',
+    title: 'SignVu - Real-time Sign Language Translator',
     description: 'Break communication barriers with AI-powered sign language translation.',
     type: 'website',
   },

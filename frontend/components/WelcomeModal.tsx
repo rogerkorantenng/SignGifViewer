@@ -43,7 +43,7 @@ export function WelcomeModal() {
 
         {/* Welcome Text */}
         <div className="mb-8 text-center">
-          <h2 className="mb-2 text-2xl font-bold">Welcome to SignBridge</h2>
+          <h2 className="mb-2 text-2xl font-bold">Welcome to SignVu</h2>
           <p className="text-muted-foreground">
             Break communication barriers with AI-powered sign language translation.
           </p>

@@ -11,7 +11,7 @@ export function Header() {
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
             <Hand className="h-5 w-5 text-primary-foreground" />
           </div>
-          <span className="text-xl font-bold">SignBridge</span>
+          <span className="text-xl font-bold">SignVu</span>
         </Link>
 
         <nav className="flex items-center gap-6">
