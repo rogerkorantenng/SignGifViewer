@@ -5,10 +5,12 @@ phases:
       python: 3.11
   pre_build:
     commands:
-      - cd backend
+      - echo "Current directory:" && pwd
+      - echo "Directory contents:" && ls -la
+      - echo "Backend contents:" && ls -la backend/
   build:
     commands:
-      - cd backend && pip install -r requirements.txt
+      - pip install -r backend/requirements.txt
 artifacts:
   files:
     - '**/*'
