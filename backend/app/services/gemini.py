@@ -1,14 +1,19 @@
 import google.generativeai as genai
+from google.generativeai.types import RequestOptions
 from PIL import Image
 import io
 import json
 import re
+import asyncio
 from typing import Optional
 
 from app.config import get_settings
 
 # Global model instance
 _model: Optional[genai.GenerativeModel] = None
+
+# Timeout for Gemini API requests (in seconds)
+GEMINI_TIMEOUT = 30
 
 
 def init_gemini(api_key: str) -> None:
@@ -67,7 +72,18 @@ Respond in this exact JSON format:
 Only respond with the JSON, no other text."""
 
     try:
-        response = model.generate_content([prompt, image])
+        # Use asyncio timeout to prevent long-running requests
+        loop = asyncio.get_event_loop()
+        response = await asyncio.wait_for(
+            loop.run_in_executor(
+                None,
+                lambda: model.generate_content(
+                    [prompt, image],
+                    request_options=RequestOptions(timeout=GEMINI_TIMEOUT)
+                )
+            ),
+            timeout=GEMINI_TIMEOUT + 5  # Extra buffer for network overhead
+        )
         response_text = response.text.strip()
 
         # Try to parse JSON from response
@@ -155,7 +171,18 @@ Respond in this exact JSON format:
 Only respond with the JSON, no other text."""
 
     try:
-        response = model.generate_content(prompt)
+        # Use asyncio timeout to prevent long-running requests
+        loop = asyncio.get_event_loop()
+        response = await asyncio.wait_for(
+            loop.run_in_executor(
+                None,
+                lambda: model.generate_content(
+                    prompt,
+                    request_options=RequestOptions(timeout=GEMINI_TIMEOUT)
+                )
+            ),
+            timeout=GEMINI_TIMEOUT + 5
+        )
         response_text = response.text.strip()
 
         # Parse JSON
@@ -259,7 +286,18 @@ Respond in this exact JSON format:
 Only respond with the JSON, no other text."""
 
     try:
-        response = model.generate_content(prompt)
+        # Use asyncio timeout to prevent long-running requests
+        loop = asyncio.get_event_loop()
+        response = await asyncio.wait_for(
+            loop.run_in_executor(
+                None,
+                lambda: model.generate_content(
+                    prompt,
+                    request_options=RequestOptions(timeout=GEMINI_TIMEOUT)
+                )
+            ),
+            timeout=GEMINI_TIMEOUT + 5
+        )
         response_text = response.text.strip()
 
         # Parse JSON
@@ -358,7 +396,18 @@ Be precise with the values to accurately represent the {language} sign for "{sig
 Only respond with the JSON, no other text."""
 
     try:
-        response = model.generate_content(prompt)
+        # Use asyncio timeout to prevent long-running requests
+        loop = asyncio.get_event_loop()
+        response = await asyncio.wait_for(
+            loop.run_in_executor(
+                None,
+                lambda: model.generate_content(
+                    prompt,
+                    request_options=RequestOptions(timeout=GEMINI_TIMEOUT)
+                )
+            ),
+            timeout=GEMINI_TIMEOUT + 5
+        )
         response_text = response.text.strip()
 
         # Parse JSON
