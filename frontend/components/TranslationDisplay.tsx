@@ -139,7 +139,7 @@ function TextToSignDisplay() {
     setError(null);
 
     try {
-      const response = await fetch('http://localhost:8000/api/signs/guidance', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/signs/guidance`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: currentText, language: 'ASL' }),

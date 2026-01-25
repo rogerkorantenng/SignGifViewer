@@ -1,6 +1,15 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
+// Generate UUID using Math.random (browser-compatible)
+const generateUUID = (): string => {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+    const r = (Math.random() * 16) | 0;
+    const v = c === 'x' ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
+};
+
 export type TranslationMode = 'sign-to-text' | 'text-to-sign';
 
 // Session types
@@ -33,7 +42,7 @@ export const useSessionStore = create<SessionState>()(
       createSession: (name: string) =>
         set({
           session: {
-            id: crypto.randomUUID(),
+            id: generateUUID(),
             name,
             createdAt: new Date().toISOString(),
             lastVisit: new Date().toISOString(),
@@ -105,7 +114,7 @@ export const useAnalyticsStore = create<AnalyticsState>()(
         set((state) => ({
           activities: [
             {
-              id: crypto.randomUUID(),
+              id: generateUUID(),
               type,
               text,
               timestamp: new Date().toISOString(),
@@ -165,7 +174,7 @@ export const useTranslationStore = create<TranslationState>((set) => ({
     set((state) => ({
       translations: [
         {
-          id: crypto.randomUUID(),
+          id: generateUUID(),
           text,
           confidence,
           timestamp: new Date(),
