@@ -1,12 +1,12 @@
-# SignBridge
+# SignVu
 
 Real-time Sign Language Translator powered by Gemini 3.
 
-![SignBridge Demo](./docs/demo.gif)
+![SignVu Demo](./docs/demo.gif)
 
 ## Overview
 
-SignBridge breaks communication barriers by providing real-time translation between sign language and text. Built for the **Gemini 3 Hackathon** by Google DeepMind.
+SignVu breaks communication barriers by providing real-time translation between sign language and text. Built for the **Gemini 3 Hackathon** by Google DeepMind.
 
 ### Features
 
@@ -54,8 +54,8 @@ SignBridge breaks communication barriers by providing real-time translation betw
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/signbridge.git
-   cd signbridge
+   git clone https://github.com/yourusername/SignVu.git
+   cd SignVu
    ```
 
 2. **Install dependencies**
@@ -118,7 +118,7 @@ SignBridge breaks communication barriers by providing real-time translation betw
 
 ## Gemini 3 Integration
 
-SignBridge leverages Gemini 3's multimodal capabilities:
+SignVu leverages Gemini 3's multimodal capabilities:
 
 1. **Image Understanding**: Gemini analyzes webcam frames to identify hand shapes, positions, and movements
 2. **Contextual Translation**: Uses reasoning to translate gesture sequences into coherent text
@@ -135,7 +135,7 @@ response = model.generate_content([
 ## Project Structure
 
 ```
-signbridge/
+SignVu/
 ├── frontend/                 # Next.js application
 │   ├── app/                  # App router pages
 │   ├── components/           # React components
